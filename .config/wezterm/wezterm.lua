@@ -36,6 +36,10 @@ config.keys = {
   { key = "Tab",   mods = "CTRL",       action = wezterm.action { ActivateTabRelative = 1 } },
   { key = "_",    mods = "CTRL|SHIFT", action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
   { key = "|",     mods = "CTRL|SHIFT", action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = "H",     mods = "CTRL|SHIFT", action = act.ActivatePaneDirection('Left') },
+  { key = "J",     mods = "CTRL|SHIFT", action = act.ActivatePaneDirection('Down') },
+  { key = "K",     mods = "CTRL|SHIFT", action = act.ActivatePaneDirection('Up') },
+  { key = "L",     mods = "CTRL|SHIFT", action = act.ActivatePaneDirection('Right') },
   { key = "w",     mods = "CTRL|SHIFT", action = act.CloseCurrentPane { confirm = false } },
   { key = 'x',     mods = 'CTRL|SHIFT', action = act.ActivateCopyMode, },
 }
