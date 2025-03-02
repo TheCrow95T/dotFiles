@@ -22,18 +22,22 @@ config.max_fps = 120
 
 config.color_scheme = 'Dark Pastel'
 
-config.disable_default_key_bindings = true
-
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 config.disable_default_key_bindings = true
 
 local act = wezterm.action
 config.keys = {
-  { key = "V",        mods = "CTRL",  action = act.PasteFrom("Clipboard") },
-  { key = "Copy",  mods = "NONE", action = act.CopyTo("Clipboard") },
-  { key = "Paste", mods = "NONE", action = act.PasteFrom("Clipboard") },
-  { key = "F11",   mods = "NONE", action = act.ToggleFullScreen },
+  { key = "V",     mods = "CTRL",       action = act.PasteFrom("Clipboard") },
+  { key = "Copy",  mods = "NONE",       action = act.CopyTo("Clipboard") },
+  { key = "Paste", mods = "NONE",       action = act.PasteFrom("Clipboard") },
+  { key = "F11",   mods = "NONE",       action = act.ToggleFullScreen },
+  { key = 't',     mods = 'CTRL|SHIFT', action = act.SpawnTab 'CurrentPaneDomain', },
+  { key = "Tab",   mods = "CTRL",       action = wezterm.action { ActivateTabRelative = 1 } },
+  { key = "_",    mods = "CTRL|SHIFT", action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
+  { key = "|",     mods = "CTRL|SHIFT", action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = "w",     mods = "CTRL|SHIFT", action = act.CloseCurrentPane { confirm = false } },
+  { key = 'x',     mods = 'CTRL|SHIFT', action = act.ActivateCopyMode, },
 }
 
 -- Maximize screen on start up
