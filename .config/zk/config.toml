@@ -99,19 +99,16 @@ ls = "zk edit --interactive"
 # search notes by tags
 t = "zk edit --interactive --tag $argv"
 
-# new journal entry
-daily = 'zk new --no-input "$ZK_NOTEBOOK_DIR/Journal"'
 # new note
 ne = 'zk new --no-input "$ZK_NOTEBOOK_DIR/Ideas" --title $argv'
-# new learn note
+daily = 'zk new --no-input "$ZK_NOTEBOOK_DIR/Journal"'
 learn = 'zk new --no-input "$ZK_NOTEBOOK_DIR/Learn" --group learn --title $argv'
-# new standup entry
 stand = 'zk new --no-input "$ZK_NOTEBOOK_DIR/StandUp"'
 
 # list
+ls-ne = "zk edit $ZK_NOTEBOOK_DIR/Ideas --sort created- --interactive"
 ls-stand = 'zk edit "$ZK_NOTEBOOK_DIR/StandUp" --sort created- --interactive'
 ls-daily = "zk edit $ZK_NOTEBOOK_DIR/Journal --sort created- --interactive"
-ls-ne = "zk edit $ZK_NOTEBOOK_DIR/Ideas --sort created- --interactive"
 ls-learn = "zk edit $ZK_NOTEBOOK_DIR/Ideas --sort created- --interactive"
 
 # update zk notes
