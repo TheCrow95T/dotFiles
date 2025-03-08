@@ -87,6 +87,8 @@ ls-stand = 'zk edit "$ZK_NOTEBOOK_DIR/StandUp" --sort created- --interactive'
 ls-daily = "zk edit $ZK_NOTEBOOK_DIR/Journal --sort created- --interactive"
 # update zk notes
 update = "cd $ZK_NOTEBOOK_DIR; git add -A; git commit -am 'updating'; git push; cd -"
+# remove a files
+rm = "zk list --interactive --quiet --format path --delimiter0 $argv | xargs -0 rm -vf --"
 
 # LSP (EDITOR INTEGRATION)
 [lsp]
