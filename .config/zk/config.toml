@@ -1,46 +1,27 @@
 # SETTINGS
-[notebook]
-dir = "Download" # same as "$HOME/notebook"
-
 [note]
-
-# Language used when writing notes.
-# This is used to generate slugs or with date formats.
 language = "en"
-
-# The default title used for new note, if no `--title` flag is provided.
 default-title = "Untitled"
-
 # Template used to generate a note's filename, without extension.
-filename = "{{id}}"
-
-# The file extension used for the notes.
+filename = "{{id}}-{{title}}"
 extension = "md"
-
 # Template used to generate a note's content.
-# If not an absolute path, it is relative to .zk/templates/
 template = "default.md"
-
 # Configure random ID generation.
-
 # The charset used for random IDs.
 id-charset = "alphanum"
-
 # Length of the generated IDs.
 id-length = 8
-
 # Letter case for the random IDs.
 id-case = "lower"
-
 
 # EXTRA VARIABLES
 [extra]
 author = "TheCrow95T"
 
-
 # GROUP OVERRIDES
 [group.standup]
-paths = ["notes/StandUp"]
+paths = ["StandUp"]
 
 [group.standup.note]
 filename = "{{format-date now}}"
@@ -56,7 +37,7 @@ extension = "md"
 template = "daily.md"
 
 [group.learn]
-paths = ["notes/Learn"]
+paths = ["Learn"]
 
 [group.learn.note]
 filename = "{{format-date now '%Y-%m-%d'}}"
@@ -73,13 +54,10 @@ colon-tags = true
 
 # EXTERNAL TOOLS
 [tool]
-
 # Default editor used to open notes.
 editor = "nvim"
-
 # Pager used to scroll through long output.
 pager = "less -FIRX"
-
 # Command used to preview a note during interactive fzf mode.
 fzf-preview = "bat -p --color always {-1}"
 
@@ -89,34 +67,29 @@ recents = "--sort created- --created-after 'last two weeks'"
 
 # COMMAND ALIASES
 [alias]
-
 # Edit the notes selected interactively among the notes created the last two weeks.
 recent = "zk edit --sort created- --created-after 'last two weeks' --interactive"
-
 # list notes for editing
 ls = "zk edit --interactive"
-
 # search notes by tags
 t = "zk edit --interactive --tag $argv"
-
+# Go to config files
+config = 'nvim "$HOME/.dotFiles/.config/zk/config.toml"'
 # new note
-ne = 'zk new --no-input "$ZK_NOTEBOOK_DIR/Ideas" --title $argv'
-daily = 'zk new --no-input "$ZK_NOTEBOOK_DIR/Journal"'
+n = 'zk new --no-input "$ZK_NOTEBOOK_DIR/Ideas" --title $argv'
 learn = 'zk new --no-input "$ZK_NOTEBOOK_DIR/Learn" --group learn --title $argv'
+daily = 'zk new --no-input "$ZK_NOTEBOOK_DIR/Journal"'
 stand = 'zk new --no-input "$ZK_NOTEBOOK_DIR/StandUp"'
-
 # list
-ls-ne = "zk edit $ZK_NOTEBOOK_DIR/Ideas --sort created- --interactive"
+ls-n = "zk edit $ZK_NOTEBOOK_DIR/Ideas --sort created- --interactive"
+ls-learn = "zk edit $ZK_NOTEBOOK_DIR/Learn --sort created- --interactive"
 ls-stand = 'zk edit "$ZK_NOTEBOOK_DIR/StandUp" --sort created- --interactive'
 ls-daily = "zk edit $ZK_NOTEBOOK_DIR/Journal --sort created- --interactive"
-ls-learn = "zk edit $ZK_NOTEBOOK_DIR/Ideas --sort created- --interactive"
-
 # update zk notes
 update = "cd $ZK_NOTEBOOK_DIR; git add -A; git commit -am 'updating'; git push; cd -"
 
 # LSP (EDITOR INTEGRATION)
 [lsp]
-
 [lsp.diagnostics]
 # Report titles of wiki-links as hints.
 wiki-title = "hint"
