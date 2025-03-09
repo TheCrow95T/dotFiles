@@ -40,7 +40,7 @@ template = "daily.md"
 paths = ["Learn"]
 
 [group.learn.note]
-filename = "{{format-date now '%Y-%m-%d'}}"
+filename = "{{title}}"
 extension = "md"
 template = "learn.md"
 
