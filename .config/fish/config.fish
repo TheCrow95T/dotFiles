@@ -4,11 +4,12 @@ alias suwayomi="cd ~/AppImage/Suwayomi-Server-v1.1.1-r1535-linux-x64/; sh suwayo
 alias penpotUp="cd ~/Documents/Docker/penpot;sudo docker compose -p penpot -f docker-compose.yaml up -d"
 alias penpotDw="cd ~/Documents/Docker/penpot;sudo docker compose -p penpot -f docker-compose.yaml down"
 alias lvim="NVIM_APPNAME=lvim nvim"
+alias kvim="NVIM_APPNAME=kvim nvim"
 
 set -Ux ZK_NOTEBOOK_DIR "$HOME/Documents/Notes"
 
 export PATH="$PATH:/home/thecrow95t/.local/bin"
-export EDITOR=vim
+export EDITOR=nvim
 export XMODIFIERS=@im=fcitx
 # export QT_IM_MODULES="wayland;fcitx;ibus"
 
