@@ -5,6 +5,7 @@ alias penpotUp="cd ~/Documents/Docker/penpot;sudo docker compose -p penpot -f do
 alias penpotDw="cd ~/Documents/Docker/penpot;sudo docker compose -p penpot -f docker-compose.yaml down"
 alias lvim="NVIM_APPNAME=lvim nvim"
 alias kvim="NVIM_APPNAME=kvim nvim"
+alias cl="clear"
 
 set -Ux ZK_NOTEBOOK_DIR "$HOME/Documents/Notes"
 
